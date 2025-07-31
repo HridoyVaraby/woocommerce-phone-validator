@@ -6,8 +6,8 @@ class WC_PV_Dependencies{
     private static $active_plugins;
     
     // Minimum version requirements
-    const MIN_WP_VERSION = '6.0';
-    const MIN_WC_VERSION = '7.0';
+    const MIN_WP_VERSION = '5.0';
+    const MIN_WC_VERSION = '5.0';
     const MIN_PHP_VERSION = '7.4';
     
     public static function init() {

@@ -5,14 +5,16 @@
  */
 
 var $ = jQuery;
-// $(document).ready(function(){
-// set phone number properly for intl
-// here, the index maps to the error code returned from getValidationError
-var wcPvPhoneErrorMap = wcPvJson.validationErrors;
-// start
-if ($( '.wc-pv-intl input' ).length == 0) {// add class, some checkout plugin has overriden my baby
-    $( '#billing_phone_field' ).addClass( 'wc-pv-phone wc-pv-intl' );
-}
+
+$(document).ready(function(){
+    // set phone number properly for intl
+    // here, the index maps to the error code returned from getValidationError
+    var wcPvPhoneErrorMap = wcPvJson.validationErrors;
+    
+    // start
+    if ($( '.wc-pv-intl input' ).length == 0) {// add class, some checkout plugin has overriden my baby
+        $( '#billing_phone_field' ).addClass( 'wc-pv-phone wc-pv-intl' );
+    }
 // Set default country.
 var wcPvDefCountry = ( wcPvJson.defaultCountry == '' ? $( `${wcPvJson.parentPage} #billing_country` ).val() : wcPvJson.defaultCountry );
 
@@ -124,4 +126,4 @@ if ( wcPvJson.currentPage == 'checkout' ) {
     );
 }
 
-// });
+}); // End document ready

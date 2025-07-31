@@ -51,7 +51,7 @@ final class WC_PV{
     private function define_constants() {
         $this->define( 'WC_PV_ABSPATH', dirname( WC_PV_PLUGIN_FILE ) . '/' );
         $this->define( 'WC_PV_PLUGIN_FILE', plugin_basename( WC_PV_PLUGIN_FILE ) );
-        $this->define( 'WC_PV_ASSETS_PATH', plugins_url( 'assets/', __FILE__ ) );
+        $this->define( 'WC_PV_ASSETS_PATH', plugins_url( 'assets/', WC_PV_PLUGIN_FILE ) );
 
         if( trim( strtolower( WC_PV_ENVIRONMENT ) ) == 'production' )
             $this->define( 'WC_PV_MIN_SUFFIX', '.min' );

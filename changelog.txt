@@ -2,8 +2,8 @@
 
 = 2.0.0 =
 * Major Update: Full compatibility with WooCommerce High-Performance Order Storage (HPOS)
-* Update: Minimum WordPress version requirement increased to 6.0
-* Update: Minimum WooCommerce version requirement increased to 7.0
+* Update: Minimum WordPress version requirement remains 5.0 (compatible with modern versions)
+* Update: Minimum WooCommerce version requirement increased to 5.0
 * Update: Minimum PHP version requirement increased to 7.4
 * Update: Tested up to WordPress 6.4
 * Update: Tested up to WooCommerce 8.5

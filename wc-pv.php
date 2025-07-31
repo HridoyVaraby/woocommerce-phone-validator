@@ -14,10 +14,10 @@
  * Author: Precious Omonzejele (CodeXplorer 🤾🏽‍♂️🥞🦜🤡)
  * Author URI: https://codexplorer.ninja
  * Version: 2.0.0
- * Requires at least: 6.0
+ * Requires at least: 5.0
  * Tested up to: 6.4
  * Requires PHP: 7.4
- * WC requires at least: 7.0
+ * WC requires at least: 5.0
  * WC tested up to: 8.5
  * 
  * Text Domain: woo-phone-validator

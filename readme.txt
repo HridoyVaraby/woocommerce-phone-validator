@@ -1,10 +1,10 @@
 ﻿=== Phone Validator for WooCommerce ===
 Contributors: preciousomonze,helgatheviking
 Tags: woocommerce,phone number validator,checkout phone validator,account phone validator,woocommerce validation,hpos
-Requires at least: 6.0
+Requires at least: 5.0
 Tested up to: 6.4
 Requires PHP: 7.4
-WC requires at least: 7.0
+WC requires at least: 5.0
 WC tested up to: 8.5
 License: GNU General Public License v3.0
 License URI: https://github.com/Preciousomonze/woocommerce-phone-validator/blob/master/LICENSE

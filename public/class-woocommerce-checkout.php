@@ -8,28 +8,30 @@ Class WC_PV_Checkout{
      * Construcdur :)
      */
     public function __construct(){
-        //if(wc_pv()->is_account_page() || wc_pv()->is_checkout()){
-            //henqueue
-            add_action( 'wp_enqueue_scripts', array($this,'enqueue_css' ));
-            add_action( 'wp_enqueue_scripts', array($this,'enqueue_js' ));
-            //woocommerce things
-            add_filter('woocommerce_billing_fields', array($this,'add_billing_fields'),20,1);
-            add_action('woocommerce_after_checkout_validation', array($this,'checkout_validate'));
-        //}
+        //henqueue
+        add_action( 'wp_enqueue_scripts', array($this,'enqueue_css' ));
+        add_action( 'wp_enqueue_scripts', array($this,'enqueue_js' ));
+        //woocommerce things
+        add_filter('woocommerce_billing_fields', array($this,'add_billing_fields'),20,1);
+        add_action('woocommerce_after_checkout_validation', array($this,'checkout_validate'));
     }
     
     /**
      * enqueues all necessary scripts
      */
     public function enqueue_js(){
-        //p_enqueue_script('NameMySccript','path/to/MyScript','dependencies_MyScript', 'VersionMyScript', 'InfooterTrueorFalse');
+        // Only load on checkout or account pages
+        if ( !is_checkout() && !is_account_page() ) {
+            return;
+        }
+        
         wp_register_script('wc_pv_intl-phones-lib',wc_pv()->plugin_url().'/assets/vendor/js/intlTelInput-jquery.min.js',array('jquery'),WC_PV_PLUGIN_VERSION,true);
         $script_dep = array('wc_pv_intl-phones-lib');
 
         if ( is_checkout() )//for checkout, to load properly
             $script_dep[] = 'wc-checkout';
 
-            wp_register_script('wc_pv_js-script',wc_pv()->plugin_url().'/assets/js/frontend'.WC_PV_MIN_SUFFIX.'.js',$script_dep,WC_PV_PLUGIN_VERSION,true);
+        wp_register_script('wc_pv_js-script',wc_pv()->plugin_url().'/assets/js/frontend'.WC_PV_MIN_SUFFIX.'.js',$script_dep,WC_PV_PLUGIN_VERSION,true);
         //localise script,
         global $wc_pv_woo_custom_field_meta;
         $wc_pv_json = array(
@@ -68,6 +70,11 @@ Class WC_PV_Checkout{
      * enqueues all necessary css
      */
     public function enqueue_css(){
+        // Only load on checkout or account pages
+        if ( !is_checkout() && !is_account_page() ) {
+            return;
+        }
+        
         wp_enqueue_style( 'wc_pv_intl-phones-lib-css',wc_pv()->plugin_url().'/assets/vendor/css/intlTelInput.min.css');
         wp_enqueue_style( 'wc_pv_css-style',wc_pv()->plugin_url().'/assets/css/frontend'.WC_PV_MIN_SUFFIX.'.css',array(),WC_PV_PLUGIN_VERSION);
     }
@@ -76,7 +83,11 @@ Class WC_PV_Checkout{
      * Adds extra fields to woocommerce billing form
      */
     public function add_billing_fields($fields){
-        $fields['billing_phone']['class'][0] .= ' wc-pv-phone wc-pv-intl';
+        if (isset($fields['billing_phone']['class'][0])) {
+            $fields['billing_phone']['class'][0] .= ' wc-pv-phone wc-pv-intl';
+        } else {
+            $fields['billing_phone']['class'] = array('form-row-wide wc-pv-phone wc-pv-intl');
+        }
         return $fields;
     }
 
