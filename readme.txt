@@ -1,13 +1,15 @@
 ﻿=== Phone Validator for WooCommerce ===
 Contributors: preciousomonze,helgatheviking
-Tags: woocommerce,phone number validator,checkout phone validator,account phone validator,woocommerce validation
-Requires at least: 4.9
-Tested up to: 5.4
-Requires PHP: 5.6
+Tags: woocommerce,phone number validator,checkout phone validator,account phone validator,woocommerce validation,hpos
+Requires at least: 6.0
+Tested up to: 6.4
+Requires PHP: 7.4
+WC requires at least: 7.0
+WC tested up to: 8.5
 License: GNU General Public License v3.0
 License URI: https://github.com/Preciousomonze/woocommerce-phone-validator/blob/master/LICENSE
 Donate link: https://rave.flutterwave.com/pay/preciousomonze
-Stable tag: 1.3.0
+Stable tag: 2.0.0
 
 Phone Validator for WooCommerce Helps in validating international telephone numbers on WooCommerce billing address. 
 
@@ -51,8 +53,7 @@ Awwwwn 😊, sorry about that, you can submit an issue [by clicking here](https:
 Yes you can, check out the [github repo here](https://github.com/Preciousomonze/woocommerce-phone-validator/).
 
 == Upgrade notice ==
-Translation support.  IKR! finally 😂 (I am sincerely sorry).
-New filter hooks to help customize some things, view Changelog for more info.
+Major update: Full compatibility with WooCommerce High-Performance Order Storage (HPOS) and modern WordPress/WooCommerce versions. Updated minimum requirements: WordPress 6.0+, WooCommerce 7.0+, PHP 7.4+.
 
 == Screenshots ==
 

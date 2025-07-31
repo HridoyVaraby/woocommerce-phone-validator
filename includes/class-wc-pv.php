@@ -28,7 +28,7 @@ final class WC_PV{
      * Class constructor
      */
     public function __construct() {
-        if ( WC_PV_Dependencies::is_woocommerce_active() ) {
+        if ( WC_PV_Dependencies::are_dependencies_met() ) {
             // Define the constants.
             $this->define_constants();
 
@@ -129,10 +129,20 @@ final class WC_PV{
      * Display admin notice
      */
     public function admin_notices() {
-        echo '<div class="error"><p>';
-        _e('<strong>Woocommerce Phone Validator</strong> plugin requires <a href="https://wordpress.org/plugins/woocommerce/" target="_blank">WooCommerce</a> plugin to be active!', 'woo-phone-validator' );
-        echo '</p></div>';
-
+        $errors = WC_PV_Dependencies::get_dependency_errors();
+        
+        if ( empty( $errors ) ) {
+            return;
+        }
+        
+        echo '<div class="error">';
+        echo '<p><strong>' . __( 'Phone Validator for WooCommerce', 'woo-phone-validator' ) . '</strong></p>';
+        echo '<ul>';
+        foreach ( $errors as $error ) {
+            echo '<li>' . esc_html( $error ) . '</li>';
+        }
+        echo '</ul>';
+        echo '</div>';
     }
 
     /**

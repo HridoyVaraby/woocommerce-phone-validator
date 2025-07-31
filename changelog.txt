@@ -1,5 +1,16 @@
 == Changelog ==
 
+= 2.0.0 =
+* Major Update: Full compatibility with WooCommerce High-Performance Order Storage (HPOS)
+* Update: Minimum WordPress version requirement increased to 6.0
+* Update: Minimum WooCommerce version requirement increased to 7.0
+* Update: Minimum PHP version requirement increased to 7.4
+* Update: Tested up to WordPress 6.4
+* Update: Tested up to WooCommerce 8.5
+* Improvement: Enhanced dependency checking with detailed error messages
+* Improvement: Modern plugin initialization and compatibility declarations
+* Fix: Resolved HPOS compatibility warnings
+
 = 1.0.0 =
 * lauhcing first version.
 
